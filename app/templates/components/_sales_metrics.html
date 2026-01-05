@@ -1,0 +1,59 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <div class="row g-3">
+
+      <div class="col-md-3">
+        <div class="card bg-primary h-100">
+          <div class="card-body">
+            <h5 class="card-title text-white">
+              Quantidade de vendas
+            </h5>
+            <p class="card-text text-white display-6 mb-0">
+              {{ sales_metrics.total_sales }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card bg-danger h-100">
+          <div class="card-body">
+            <h5 class="card-title text-white">
+              Produtos vendidos
+            </h5>
+            <p class="card-text text-white display-6 mb-0">
+              {{ sales_metrics.total_products_sold }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card bg-success h-100">
+          <div class="card-body">
+            <h5 class="card-title text-white">
+              Valor das vendas
+            </h5>
+            <p class="card-text text-white display-6 mb-0">
+              R$ {{ sales_metrics.total_sales_value }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card bg-warning h-100">
+          <div class="card-body">
+            <h5 class="card-title text-white">
+              Lucro das vendas
+            </h5>
+            <p class="card-text text-white display-6 mb-0">
+              R$ {{ sales_metrics.total_sales_profit }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

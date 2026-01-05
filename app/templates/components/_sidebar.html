@@ -1,0 +1,101 @@
+<!-- SIDEBAR -->
+<div class="col-auto px-0 bg-light border-end">
+
+  <!-- CONTAINER INTERNO -->
+  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 text-dark min-vh-100">
+
+    <!-- BOTÃO MOBILE -->
+    <button class="btn btn-outline-secondary d-block d-sm-none mb-3"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuCollapse"
+            aria-expanded="false"
+            aria-controls="menuCollapse">
+      <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse d-sm-block w-100" id="menuCollapse">
+      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start w-100">
+
+        <li class="nav-item w-100">
+          <a href="{% url 'home' %}" class="nav-link text-dark px-0">
+            <i class="bi bi-speedometer2 fs-5"></i>
+            <span class="ms-2">Dashboard</span>
+          </a>
+        </li>
+
+        {% if perms.suppliers.view_supplier %}
+        <li class="nav-item w-100">
+          <a href="{% url 'supplier_list' %}" class="nav-link text-dark px-0">
+            <i class="bi bi-truck fs-5"></i>
+            <span class="ms-2">Fornecedores</span>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if perms.brands.view_brand %}
+        <li class="nav-item w-100">
+          <a href="{% url 'brand_list' %}" class="nav-link text-dark px-0">
+            <i class="bi bi-shop fs-5"></i>
+            <span class="ms-2">Marcas</span>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if perms.categories.view_category %}
+        <li class="nav-item w-100">
+          <a href="{% url 'category_list' %}" class="nav-link text-dark px-0">
+            <i class="bi bi-tags fs-5"></i>
+            <span class="ms-2">Categorias</span>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if perms.products.view_product %}
+        <li class="nav-item w-100">
+          <a href="{% url 'product_list' %}" class="nav-link text-dark px-0">
+            <i class="bi bi-box-seam fs-5"></i>
+            <span class="ms-2">Produtos</span>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if perms.inflows.view_inflow %}
+        <li class="nav-item w-100">
+          <a href="{% url 'inflow_list' %}" class="nav-link text-dark px-0">
+            <i class="bi bi-arrow-down-left-square fs-5"></i>
+            <span class="ms-2">Entradas</span>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if perms.outflows.view_outflow %}
+        <li class="nav-item w-100">
+          <a href="{% url 'outflow_list' %}" class="nav-link text-dark px-0">
+            <i class="bi bi-arrow-up-right-square fs-5"></i>
+            <span class="ms-2">Saídas</span>
+          </a>
+        </li>
+        {% endif %}
+
+        <!-- LOGOUT -->
+        {% if user.is_authenticated %}
+        <li class="nav-item w-100 mt-3">
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit"
+                    class="btn btn-link text-dark text-decoration-none px-0">
+              <i class="bi bi-box-arrow-right fs-5"></i>
+              <span class="ms-2">Sair</span>
+            </button>
+          </form>
+        </li>
+        {% endif %}
+
+      </ul>
+    </div>
+
+    <hr class="w-100">
+  </div>
+</div>
